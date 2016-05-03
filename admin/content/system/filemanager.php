@@ -29,6 +29,7 @@ if(!defined('access') or !access) die('This file cannot be directly accessed.');
         </div>
         <div id="top-links">
         	<a href="<?php echo __CHV_BASE_URL__; ?>" target="_blank"><?php show_lang_txt('txt_homepage'); ?></a>
+                <a href="<?php echo __CHV_BASE_URL__; ?>" target="_blank"><?php show_lang_txt('txt_homepage'); ?></a>
             <a id="logout"><?php show_lang_txt('txt_logout'); ?><i></i></a>
         </div>
     </div>
