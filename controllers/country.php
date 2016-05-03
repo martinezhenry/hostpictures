@@ -104,3 +104,14 @@ function updateCountry($id, $country){
     return json_encode($result);
     
 }
+
+
+require_once 'core/masterFunctions.php';
+
+if (isset($_POST['method'])){
+    if (isset($_POST['parameters'])) {
+        executeLocalFunctions($_POST['method'], $_POST['parameters']);
+    } else {
+        executeLocalFunctions($_POST['method']);
+    }
+}

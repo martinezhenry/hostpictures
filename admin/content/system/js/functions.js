@@ -1,5 +1,3 @@
-<?php
-
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,45 +5,11 @@
  */
 
 
-
-require_once './controllers/album.php';
-require_once './controllers/city.php';
-require_once './controllers/country.php';
-require_once './controllers/usuario.php';
-require_once './controllers/comment.php';
-
-//header("Content-Type: application/json; charset=utf-8");
-echo "<br> <a href='?album'>get Albums</a><br>";
-if (isset($_GET['album'])){
-echo getAlbum();
-}
-echo "<br> <a href='?city'>get Cities</a> <br>";
-if (isset($_GET['city'])){
-echo getCity();
-}
-echo "<br> <a href='?comment'>get Comments</a><br>";
-if (isset($_GET['comment'])){
-echo getComment();
-}
-echo "<br> <a href='?country'>get Countries</a><br>";
-if (isset($_GET['country'])){
-echo utf8_decode( getCountry() );
-}
-echo "<br> <a href='?user'>get Users</a><br>";
-if (isset($_GET['user'])){
-echo getUsuario();
-}
-
-?>
-
-<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
-<script>
-
 function getCountries(id) {
-    console.log('getCountry');
+    console.log('getCompanies');
     $.ajax({
         url: 'controllers/country.php',
-        data: {'parameters' : {'parameters':id}, 'method': 'getCountry' },
+        data: {'parameters' : {'parameters':id}, 'method': 'getCompanies' },
         method: 'post',
         dataType: 'json',
         success: function(r){
@@ -76,4 +40,3 @@ function getCountries(id) {
             $('#msg').modal('toggle');
     });
 }
-</script>
