@@ -8,6 +8,7 @@
 require_once 'Constants.php';
 //require_once 'DBMagnament.php';
 
+
         const __NAME__ = 'name';
         const __TIMEZONE__ = 'timezone';
         const __PRODUCTION__ = 'production';
@@ -43,6 +44,7 @@ class Configurator implements Constants {
     private $namespace_auth;
 
     private function __construct() {
+        define( '__MAIN_ROOT__' , str_replace('core', '', __DIR__ ) ) ;
         $this->loadConfig();
     }
 
@@ -58,7 +60,7 @@ class Configurator implements Constants {
     }
 
     public function loadConfig() {
-        $configData = parse_ini_file("config/config.ini", true);
+        $configData = parse_ini_file(__MAIN_ROOT__ . "config/config.ini", true);
         foreach ($configData['application'] as $key => $value) {
             // echo "asada";
 
@@ -75,7 +77,7 @@ class Configurator implements Constants {
     }
 
     public function loadDBConfig() {
-        $configData = parse_ini_file("config/databases.ini", true);
+        $configData = parse_ini_file(__MAIN_ROOT__ . "config/databases.ini", true);
         if (NULL != $this->getDatabase()) {
             // var_dump($configData);
             foreach ($configData as $key => $value) {

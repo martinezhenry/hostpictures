@@ -8,8 +8,8 @@
  */
 
 
-require_once 'core/Configurator.php';
-require_once 'core/DBManagement.php';
+require_once '../core/Configurator.php';
+require_once '../core/DBManagement.php';
 
 Configurator::getInstance();
 
@@ -106,7 +106,7 @@ function updateCountry($id, $country){
 }
 
 
-require_once 'core/masterFunctions.php';
+require_once '../core/masterFunctions.php';
 
 if (isset($_POST['method'])){
     if (isset($_POST['parameters'])) {

@@ -6,15 +6,15 @@
 
 
 function getCountries(id) {
-    console.log('getCompanies');
+    console.log('getCountry');
     $.ajax({
         url: 'controllers/country.php',
-        data: {'parameters' : {'parameters':id}, 'method': 'getCompanies' },
+        data: {'parameters' : {'parameters':id}, 'method': 'getCountry' },
         method: 'post',
         dataType: 'json',
         success: function(r){
             
-       console.log(r);
+       console.error(r);
             if (r != false){
                 
                 var html = "";
@@ -22,21 +22,21 @@ function getCountries(id) {
                 $.each(r, function( key, value ) {
                     html += "<tr id='"+value.id+"'>";
                     html += "<td>" + (key+1) + "</td>";
-                    html += "<td>" + value.rif + "</td>";
-                    html += "<td>" + value.razon + "</td>";
-                    html += "<td>" + value.dir + "</td>";
-                    html += "<td>" + value.tlf + "</td>";
-                    html += "<td><a class='edit icon'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a><a class='delete'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
+                    html += "<td>" + value.nombre + "</td>";
+                    html += "<td>" + value.name + "</td>";
+                    html += "<td>" + value.nom + "</td>";
+                    html += "<td>" + value.iso2 + "</td>";
+                    html += "<td>" + value.iso3 + "</td>";
                     html += "</tr>";
                     
                   });
-                $('#companies tbody').html(html);
+                $('#data tbody').html(html);
             }
         }
     }).fail(function(r){
-        console.log(r);
-            $('#msg .modal-body').html('Error consultando la(s) compañia(s)');
-            $('#msg').addClass('success');
-            $('#msg').modal('toggle');
+        console.error(r);
+           // $('#msg .modal-body').html('Error consultando la(s) compañia(s)');
+           // $('#msg').addClass('success');
+           // $('#msg').modal('toggle');
     });
 }
