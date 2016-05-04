@@ -255,8 +255,8 @@ class Upload {
 						'image_thumb_url'		=> absolute_to_url($thumb_filename),
 						'image_thumb_path'		=> $thumb_path,
 						'image_thumb_width'		=> $this->thumb_width,
-						'image_thumb_height'	=> $this->thumb_height,
-                                                'idCity' => '0'
+						'image_thumb_height'	=> $this->thumb_height
+                                              //  'idCity' => '0'
 					);
 					
 					switch($this->storage) {

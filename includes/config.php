@@ -51,7 +51,7 @@ $config['meta_keywords']	= 'images, photos, image hosting, photo hosting, free i
  */ 
 $config['db_host'] = 'localhost'; // localhost is mostly the default on all servers. Do not indicate port here!
 $config['db_port'] = ''; // Some servers needs to indicate the port of the database hostname - default: don't set it
-$config['db_name'] = 'hostpictures'; // Database must exists
+$config['db_name'] = 'pictures'; // Database must exists
 $config['db_user'] = 'root'; // Database user with access to the above database name
 $config['db_pass'] = '';
 

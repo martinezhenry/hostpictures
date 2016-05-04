@@ -308,11 +308,12 @@ class dB {
 			$image_date,
 			$uploader_ip,
 			$storage_id,
-			$this->image_delete_hash,
-                        $file_array['idCity']
+			$this->image_delete_hash
+                       // $file_array['idCity']
 		);
 
-		$query = $this->query('INSERT INTO chv_images (image_name, image_type, image_size, image_width, image_height, image_date, uploader_ip, storage_id, image_delete_hash, cities_idcities) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', $file_db_array);
+		$query = $this->query('INSERT INTO chv_images (image_name, image_type, image_size, image_width, image_height, image_date, uploader_ip, storage_id, image_delete_hash ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', $file_db_array);
+                //$query = $this->query('INSERT INTO chv_images (image_name, image_type, image_size, image_width, image_height, image_date, uploader_ip, storage_id, image_delete_hash, cities_idcities, categoria_img_idcategoria_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, \'0\', \'0\')', $file_db_array);
 		if($query) {
 			return true;
 		} else {
