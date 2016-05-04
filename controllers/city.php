@@ -8,8 +8,8 @@
  */
 
 
-require_once 'core/Configurator.php';
-require_once 'core/DBManagement.php';
+require_once '../core/Configurator.php';
+require_once '../core/DBManagement.php';
 
 Configurator::getInstance();
 
@@ -41,21 +41,20 @@ function getCity($id = NULL){
 function putCity($city){
    
     $sql = "insert into cities (nombre, name, nom, countries_idcountries) values ('".$city['nombre']."', '".$city['name']."', '".$city['nom']."', '".$city['idcountries']."')";
-    
+
     DBManagement::getInstance()->insertar($sql);
     
     $result = DBManagement::getInstance()->getResultSet();
             
-    if (is_array($result) && count($result) > 0){
-       
-       $result;
-       
+    if(DBManagement::getInstance()->getCountRows() == 1){
+       return json_encode(TRUE);
     } else {
-        $result = FALSE;
+       //echo DBManagement::getInstance()->getUltError();
+       return json_encode(FALSE);
     }
     
    // var_dump($result);
-    return json_encode($result);
+    //return json_encode($result);
     
 }
 
@@ -103,4 +102,15 @@ function updateCity($id, $city){
    // var_dump($result);
     return json_encode($result);
     
+}
+
+
+require_once '../core/masterFunctions.php';
+
+if (isset($_POST['method'])){
+    if (isset($_POST['parameters'])) {
+        executeLocalFunctions($_POST['method'], $_POST['parameters']);
+    } else {
+        executeLocalFunctions($_POST['method']);
+    }
 }

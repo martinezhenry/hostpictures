@@ -39,23 +39,20 @@ function getCountry($id = NULL){
 
 
 function putCountry($country){
-   
-    $sql = "insert into countries (nombre, name, nom, iso2, iso3, phone_code) values ('".$country['nombre']."', '".$country['name']."', '".$country['nom']."', '".$country['iso2']."', '".$country['iso3']."')";
     
+    $sql = "insert into countries (nombre, name, nom, iso2, iso3, phone_code) values ('".$country['nombre']."', '".$country['name']."', '".$country['nom']."', '".$country['iso2']."', '".$country['iso3']."', '".$country['phone_code']."')";
+    
+    //echo $sql;
     DBManagement::getInstance()->insertar($sql);
     
     $result = DBManagement::getInstance()->getResultSet();
             
-    if (is_array($result) && count($result) > 0){
-       
-       $result;
-       
+    if(DBManagement::getInstance()->getCountRows() == 1){
+       return json_encode(TRUE);
     } else {
-        $result = FALSE;
+        return json_encode(FALSE);
     }
     
-  //  var_dump($result);
-    return json_encode($result);
     
 }
 
