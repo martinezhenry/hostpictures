@@ -47,14 +47,26 @@
                     var comment = new Object();
                         if ($('input[name="comment_1"]').length > 0)  comment.comment =  $('input[name="comment_1"]').val(); else comment.comment =  "";
                         if ($('input[name="comment_2"]').length > 0) { comment.likes = $('input[name="comment_2"]').val(); } else { comment.likes = ""; }
-                        if ($('input[name="comment_4"]').length > 0)  comment.image_id = $('input[name="comment_4"]').val(); else comment.image_id = "";
+                        if ($('input[name="comment_3"]').length > 0)  comment.image_id = $('input[name="comment_3"]').val(); else comment.image_id = "";
                     putComment(comment);
                     break;
                 case 'user': 
-                    createUser();
+                    var user = new Object();
+                  
+                        if ($('input[name="user_1"]').length > 0)  user.name =  $('input[name="user_1"]').val(); else user.name =  "";
+                        if ($('input[name="user_2"]').length > 0) { user.email = $('input[name="user_2"]').val(); } else { user.email = ""; }
+                        if ($('input[name="user_3"]').length > 0)  user.pass = $('input[name="user_3"]').val(); else user.pass = "";
+                        if ($('input[name="user_4"]').length > 0)  user.status = $('input[name="user_4"]').val(); else user.status = "";
+                        if ($('input[name="user_5"]').length > 0)  user.img_profile = $('input[name="user_5"]').val(); else user.img_profile = "";
+                    putUser(user);
                     break;
                 case 'album': 
-                    createAlbum();
+                    var album = new Object();
+                    
+                        if ($('input[name="album_1"]').length > 0)  album.type =  $('input[name="album_1"]').val(); else album.type =  "";
+                        if ($('input[name="album_2"]').length > 0) { album.idusers = $('input[name="album_2"]').val(); } else { album.idusers = ""; }
+                       
+                    putAlbum(album);
                     break;
                 default:
                     break;

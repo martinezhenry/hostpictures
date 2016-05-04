@@ -47,6 +47,7 @@ $upload->thumb_height = chevereto_config('thumb_height');
 $upload->max_size = return_bytes(chevereto_config('max_filesize'));
 $upload->storage = chevereto_config('storage');
 
+
 /*** Do the thing? ***/
 if($upload->process()) {
 	$imageInfo = $upload->image_info;

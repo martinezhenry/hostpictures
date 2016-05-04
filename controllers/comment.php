@@ -49,12 +49,11 @@ function putComment($comment){
     if(DBManagement::getInstance()->getCountRows() == 1){
        return json_encode(TRUE);
     } else {
-       echo DBManagement::getInstance()->getUltError();
+      // echo DBManagement::getInstance()->getUltError();
        return json_encode(FALSE);
     }
     
-  //  var_dump($result);
-    return json_encode($result);
+
     
 }
 

@@ -7,8 +7,8 @@
  */
 
 
-require_once 'core/Configurator.php';
-require_once 'core/DBManagement.php';
+require_once '../core/Configurator.php';
+require_once '../core/DBManagement.php';
 
 Configurator::getInstance();
 
@@ -39,22 +39,19 @@ function getAlbum($id = NULL){
 
 function putAlbum($album){
    
-    $sql = "insert into album (storage_type, users_idusers) values ('".$album['type']."', '".$album['id_users']."')";
+    $sql = "insert into chv_storages (storage_type, users_idusers) values ('".$album['type']."', '".$album['idusers']."')";
     
     DBManagement::getInstance()->insertar($sql);
     
-    $result = DBManagement::getInstance()->getResultSet();
             
-    if (is_array($result) && count($result) > 0){
-       
-       $result;
-       
+    if(DBManagement::getInstance()->getCountRows() == 1){
+       return json_encode(TRUE);
     } else {
-        $result = FALSE;
+      // echo DBManagement::getInstance()->getUltError();
+       return json_encode(FALSE);
     }
     
-   // var_dump($result);
-    return json_encode($result);
+
     
 }
 
@@ -104,4 +101,16 @@ function updateAlbum($id, $type){
    // var_dump($result);
     return json_encode($result);
     
+}
+
+
+
+require_once '../core/masterFunctions.php';
+
+if (isset($_POST['method'])){
+    if (isset($_POST['parameters'])) {
+        executeLocalFunctions($_POST['method'], $_POST['parameters']);
+    } else {
+        executeLocalFunctions($_POST['method']);
+    }
 }

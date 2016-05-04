@@ -255,7 +255,8 @@ class Upload {
 						'image_thumb_url'		=> absolute_to_url($thumb_filename),
 						'image_thumb_path'		=> $thumb_path,
 						'image_thumb_width'		=> $this->thumb_width,
-						'image_thumb_height'	=> $this->thumb_height
+						'image_thumb_height'	=> $this->thumb_height,
+                                                'idCity' => '0'
 					);
 					
 					switch($this->storage) {
@@ -274,7 +275,7 @@ class Upload {
 						$this->error = $dB->error;
 						return false;
 					}
-
+                                        var_dump($this->image_info);
 					if($dB->insert_file($this->image_info)) {
 						$image_delete_hash = $dB->image_delete_hash;
 						$this->image_info['image_id'] = $dB->last_insert_id();
